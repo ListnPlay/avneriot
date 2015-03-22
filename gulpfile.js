@@ -38,8 +38,14 @@ gulp.task('js', function() {
       .pipe(gulp.dest('build/'));
 });
 
+// HTML
+gulp.task('html', function() {
+  gulp.src(['./index.html'])
+    .pipe(gulp.dest('./build'));
+});
+
 // serve task
-gulp.task('serve', ['browser-sync', 'js'] , function(cb) {
+gulp.task('serve', ['browser-sync', 'html', 'js'] , function(cb) {
 
   plugins.watch(
       './src/**/*.js',
@@ -84,12 +90,6 @@ gulp.task('css', function() {
     .pipe(plugins.csso())
     .pipe(plugins.rename('main.min.css'))
     .pipe(gulp.dest('./dist/css'))
-    .on('error', plugins.util.log);
-});
-// Copy index.html to 'dist'
-gulp.task('html', function() {
-  gulp.src(['./index.html'])
-    .pipe(gulp.dest('./dist'))
     .on('error', plugins.util.log);
 });
 
