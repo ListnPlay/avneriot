@@ -17,7 +17,6 @@
       "process": "github:jspm/nodelibs-process@^0.1.1",
       "riot": "github:ListnPlay/riotjs@^2.0.13",
       "riotcontrol": "npm:riotcontrol@^0.0.1",
-      "riotjs": "github:ListnPlay/riotjs@^2.0.13",
       "typescript-simple": "npm:typescript-simple@^1.0.0"
     }
   },
