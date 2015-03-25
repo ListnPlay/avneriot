@@ -1,13 +1,14 @@
 import riot from 'riot-dev';
+import avner from './avner';
 import Routes from '../routes';
-console.log("RIOT MAIN TAG");
 
+console.log("RIOT MAIN TAG");
 riot.tag('main', `
 
  <h1>Hello World</h1>
  <a href="/amit">Call Amit</a>
  <a href="/avner">Call Avner</a>
- <person></person>
+ <avner if={opts.personStore.currentPerson=='avner'} store={opts.personStore}></avner>
  <style>
      app {
          display: block;
@@ -16,10 +17,12 @@ riot.tag('main', `
  </style>
  `,
  function(opts) {
-     this.routes = new Routes();
+     //this.routes = new Routes();
+    
+    //     console.log(personStore);
 
-     this.on('mount', () => {
-         console.log("Main mounted");
-         this.routes.start();
-     });
+    this.on('mount', () => {
+        console.log("Main mounted");
+        //         this.routes.start();
+    });
 });

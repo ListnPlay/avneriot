@@ -2,8 +2,6 @@ import page from 'page';
 import avner from './components/avner';
 import amit from './components/amit';
 import riot from 'riot-dev';
-import RiotControl from 'riotcontrol';
-import PersonStore from './stores/person-store'
 
 let mountTag = (selector, tag, store) => {
     return (ctx, next) => {
@@ -23,14 +21,12 @@ let triggerEvent = (eventName) => {
 export default class Routes {
     constructor() {
         console.log("Routes class constructed!");
-        this.routingTable();
+        // this.routingTable();
     }
 
     routingTable() {
         console.log("routingTable!");
 
-        let personStore = new PersonStore();
-        RiotControl.addStore(personStore);
 
         //============Routing Table============//
         //                                     //

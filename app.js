@@ -9,7 +9,7 @@ require('./src/config');
 
 app.get('/', function (req, res) {
    System.import('./index-server').then(function(m) {
-        res.send('Hello World!')
+        res.send(m.default());
   });
 })
 

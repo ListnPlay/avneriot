@@ -14,6 +14,8 @@ riot.tag('avner', `
  </style>
  `,
  function(opts) {
+     console.log("MOUNT AVNER");
+     console.log(opts);
      let store = opts.store;
      store.on('person_swap', () => {
          console.log("Avner is being swapped!");
