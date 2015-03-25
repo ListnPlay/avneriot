@@ -16,7 +16,10 @@
       "prelude-ls": "npm:prelude-ls@^1.1.1",
       "process": "github:jspm/nodelibs-process@^0.1.1",
       "riot": "github:ListnPlay/riotjs@^2.0.13",
+      "riot-dev": "github:ListnPlay/riotjs@dev",
       "riotcontrol": "npm:riotcontrol@^0.0.1",
+      "simple-dom": "npm:simple-dom@^0.2.2",
+      "simple-html-tokenizer": "npm:simple-html-tokenizer@^0.1.1",
       "typescript-simple": "npm:typescript-simple@^1.0.0"
     }
   },
@@ -28,5 +31,9 @@
     "gulp-watch": "^4.2.0",
     "rimraf": "^2.3.2",
     "run-sequence": "^1.0.2"
+  },
+  "dependencies": {
+    "express": "^4.12.3",
+    "systemjs": "^0.15.0"
   }
 }

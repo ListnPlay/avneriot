@@ -1,6 +1,7 @@
 'use strict'
-import riot from 'riot';
+import riot from 'riot-dev';
 import RiotControl from 'riotcontrol';
+console.log("AVNER TAG");
 
 riot.tag('avner', `
 
