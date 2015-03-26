@@ -8,6 +8,10 @@ import RiotControl from 'riotcontrol';
 import PersonStore from '../stores/person-store'
 
 import express from 'express';
+import SimpleDom from 'simple-dom';
+
+import Q from 'q';
+import FS from 'fs';
 
 let app = express();
 
@@ -15,12 +19,26 @@ let personStore = new PersonStore();
 RiotControl.addStore(personStore);
 
 app.use(function (req, res, next) {
-    next();
-    console.log("Sending app");
-    let view = riot.render('main', {
-            personStore: personStore
+    Q.spawn(function* () {
+        try {
+            next(); // Process routes
+            console.log("Sending app");
+            let layout = yield Q.denodeify(FS.readFile)("./index.html").toString();
+            let parser = new SimpleDom.HTMLParser();
+            console.log(parser);
+            //let fragment = parser.parse(layout);
+            //console.log(fragment);
+            let view = riot.render('main', {
+                    personStore: personStore
+            });
+            res.send(view);
+
+        }
+        catch (e) {
+            console.log("Error", e);
+            res.send("Error: " + e);
+        }
     });
-    res.send(view);
 })
 
 app.get('/', function (req, res) {
