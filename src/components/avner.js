@@ -8,7 +8,7 @@ riot.tag('avner', `
  <h1>And Avner is here</h1>
  <a href="/amit">Call Amit instead</a>
  <style>
-     person h1 {
+     avner h1 {
          color: white;
      }
  </style>

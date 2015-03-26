@@ -11,7 +11,7 @@ riot.tag('main', `
  <avner if={opts.personStore.currentPerson=='avner'} store={opts.personStore}></avner>
  <amit if={opts.personStore.currentPerson=='amit'} store={opts.personStore}></amit>
  <style>
-     app {
+     main {
          display: block;
          background-color: red;
      }

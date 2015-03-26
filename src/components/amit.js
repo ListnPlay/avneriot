@@ -4,7 +4,7 @@ riot.tag('amit', `
  <h1>And Amit is here</h1>
  <a href="/avner">Call Avner Back</a>
  <style>
-     person h1 {
+     amit h1 {
          color: yellow;
      }
  </style>
