@@ -9,6 +9,7 @@ riot.tag('main', `
  <a href="/amit">Call Amit</a>
  <a href="/avner">Call Avner</a>
  <avner if={opts.personStore.currentPerson=='avner'} store={opts.personStore}></avner>
+ <amit if={opts.personStore.currentPerson=='amit'} store={opts.personStore}></amit>
  <style>
      app {
          display: block;

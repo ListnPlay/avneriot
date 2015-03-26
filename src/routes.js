@@ -10,13 +10,6 @@ let mountTag = (selector, tag, store) => {
     };
 };
 
-let triggerEvent = (eventName) => {
-    return (ctx, next) => {
-        console.log("Trigget event: ", eventName);
-        RiotControl.trigger(eventName);
-        next();
-    };
-};
 
 export default class Routes {
     constructor() {

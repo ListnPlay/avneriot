@@ -3,7 +3,10 @@ import riot from 'riot';
 
 export default function PersonStore() {
     riot.observable(this);
+    this.currentPerson = null;
 
-    this.currentPerson = "avner";
-
+    this.on("person_swap", (person) => {
+        console.log("Person swap!", person)
+        this.currentPerson = person;
+    });
 }
