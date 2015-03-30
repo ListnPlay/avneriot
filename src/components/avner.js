@@ -1,5 +1,5 @@
 'use strict'
-import riot from 'riot-dev';
+import riot from 'riot';
 import RiotControl from 'riotcontrol';
 console.log("AVNER TAG");
 

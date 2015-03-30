@@ -1,4 +1,4 @@
-import riot from 'riot-dev';
+import riot from 'riot';
 riot.tag('amit', `
 
  <h1>And Amit is here</h1>

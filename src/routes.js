@@ -1,7 +1,7 @@
 import page from 'page';
 import avner from './components/avner';
 import amit from './components/amit';
-import riot from 'riot-dev';
+import riot from 'riot-node';
 
 let mountTag = (selector, tag, store) => {
     return (ctx, next) => {

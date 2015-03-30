@@ -1,6 +1,5 @@
-import riot from 'riot-dev';
+import riot from 'riot';
 import avner from './avner';
-import Routes from '../routes';
 
 console.log("RIOT MAIN TAG");
 riot.tag('main', `

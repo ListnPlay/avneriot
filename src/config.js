@@ -1,5 +1,14 @@
+var baseURL;
+if (typeof window != "undefined") {
+    baseURL = window.env.SYSTEM_JS_PATH;
+} else {
+    baseURL = process.env.SYSTEM_JS_PATH;
+}
+
+ console.log("BaseURL: ", baseURL);
+
 System.config({
-  "baseURL": "file://Users/avnerus/Projects/Equala/avneriot/src",
+  "baseURL": baseURL,
   "transpiler": "babel",
   "paths": {
     "*": "*.js",
@@ -41,8 +50,8 @@ System.config({
     "page": "npm:page@1.6.1",
     "prelude-ls": "npm:prelude-ls@1.1.1",
     "q": "npm:q@2.0.3",
-    "riot": "github:ListnPlay/riotjs@2.0.13",
-    "riot-dev": "github:ListnPlay/riotjs@dev",
+    "riot": "github:ListnPlay/riotjs@dev",
+    "riot-node": "github:ListnPlay/riotjs-node@dev",
     "riotcontrol": "npm:riotcontrol@0.0.1",
     "simple-dom": "npm:simple-dom@0.2.2",
     "simple-html-tokenizer": "npm:simple-html-tokenizer@0.1.1",
