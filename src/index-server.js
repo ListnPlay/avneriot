@@ -2,22 +2,19 @@
 
 import riot from 'riot-node';
 import from './components/main';
-import from './components/avner';
-
-import RiotControl from 'riotcontrol';
-import PersonStore from '../stores/person-store'
+import personStore from './stores/person-store';
 
 import express from 'express';
 
 import Q from 'q';
 import FS from 'fs';
+
+import routes from './routes';
 import cheerio from 'cheerio';
 
 let app = express();
 let layoutHTML;
 
-let personStore = new PersonStore();
-RiotControl.addStore(personStore);
 
 // Escape the SystemJS dir
 let baseDir = __dirname + "../../../../../";
@@ -39,20 +36,7 @@ app.use(function (req, res, next) {
 });
 
 
-app.get('/', function (req, res) {
-    console.log("Handling route!")
-    RiotControl.trigger("person_swap", null);
-});
-
-app.get('/avner', function (req, res) {
-    console.log("Triggering avner person_swap")
-    RiotControl.trigger("person_swap", "avner");
-});
-
-app.get('/amit', function (req, res) {
-    console.log("Triggering amit person_swap")
-    RiotControl.trigger("person_swap", "amit");
-});
+routes.runRoutingTable(app);
 
 let server = app.listen(3000, function () {
 

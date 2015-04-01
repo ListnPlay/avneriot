@@ -15,8 +15,8 @@ riot.tag('avner', `
  `,
  function(opts) {
      console.log("MOUNT AVNER");
-     console.log(opts);
      let store = opts.store;
+     console.log("Avner tag with store: ", store);
      store.on('person_swap', () => {
          console.log("Avner is being swapped!");
          this.unmount();

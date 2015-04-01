@@ -1,9 +1,6 @@
 // SYSTEM JS
 var System = require('systemjs');
-require('./src/server-environment');
-require('./src/config');
+require('./build/environment-server');
+require('./build/config');
 
 System.import('./index-server');
-// Middleware renders the page
-
-

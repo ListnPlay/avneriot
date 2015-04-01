@@ -1,4 +1,7 @@
 import riot from 'riot';
+
+console.log("AMIT TAG");
+
 riot.tag('amit', `
 
  <h1>And Amit is here</h1>
@@ -11,8 +14,9 @@ riot.tag('amit', `
  `,
  function(opts) {
     let store = opts.store;
-    store.on('person_swap', () => {
-        console.log("Amit is being swapped!");
+    console.log("Amit tag with store: ", store);
+    store.on('person_swap', (person) => {
+        console.log("Amit is being swapped! with " + person);
         this.unmount();
     });
 });

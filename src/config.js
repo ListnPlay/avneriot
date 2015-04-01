@@ -1,24 +1,14 @@
-var baseURL;
-if (typeof window != "undefined") {
-    baseURL = window.env.SYSTEM_JS_PATH;
-} else {
-    baseURL = process.env.SYSTEM_JS_PATH;
-}
-
- console.log("BaseURL: ", baseURL);
-
 System.config({
-  "baseURL": baseURL,
   "transpiler": "babel",
-  "paths": {
-    "*": "*.js",
-    "github:*": "../jspm_packages/github/*.js",
-    "npm:*": "../jspm_packages/npm/*.js"
-  },
   "babelOptions": {
     "optional": [
       "runtime"
     ]
+  },
+  "paths": {
+    "*": "*.js",
+    "github:*": "../jspm_packages/github/*.js",
+    "npm:*": "../jspm_packages/npm/*.js"
   }
 });
 
@@ -47,8 +37,10 @@ System.config({
     "express": "npm:express@4.12.3",
     "fs": "github:jspm/nodelibs-fs@0.1.2",
     "jade": "npm:jade@1.9.2",
+    "kethinov/page.js-express-mapper.js": "github:kethinov/page.js-express-mapper.js@1.0.5",
     "page": "npm:page@1.6.1",
     "prelude-ls": "npm:prelude-ls@1.1.1",
+    "process": "github:jspm/nodelibs-process@0.1.1",
     "q": "npm:q@2.0.3",
     "riot": "github:ListnPlay/riotjs@dev",
     "riot-node": "github:ListnPlay/riotjs-node@dev",

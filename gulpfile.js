@@ -5,6 +5,7 @@ var plugins = require('gulp-load-plugins')();
 var rimraf = require('rimraf');
 var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
+var gls = require('gulp-live-server');
 
 // DEVELOPMENT TASKS
 //================================================
@@ -45,7 +46,10 @@ gulp.task('html', function() {
 });
 
 // serve task
-gulp.task('serve', ['browser-sync', 'html', 'js'] , function(cb) {
+gulp.task('serve', ['html', 'js'] , function(cb) {
+  var server = gls.new('app.js');
+  server.start();
+
 
   plugins.watch(
       './src/**/*.js',
@@ -54,8 +58,10 @@ gulp.task('serve', ['browser-sync', 'html', 'js'] , function(cb) {
       },
       function() {
         gulp.start('js');
+        server.notify();
       }
   );
+  gulp.watch('app.js', server.start);
 });
 
 // Delete build Directory

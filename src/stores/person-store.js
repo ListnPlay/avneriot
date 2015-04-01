@@ -1,7 +1,10 @@
 'use strict'
 import riot from 'riot';
+import RiotControl from 'riotcontrol';
 
-export default function PersonStore() {
+function PersonStore() {
+    console.log("Init PersonStore");
+
     riot.observable(this);
     this.currentPerson = null;
 
@@ -9,4 +12,9 @@ export default function PersonStore() {
         console.log("Person swap!", person)
         this.currentPerson = person;
     });
-}
+};
+
+
+let instance = new PersonStore();
+RiotControl.addStore(instance);
+export default instance;

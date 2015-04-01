@@ -1,5 +1,6 @@
 import riot from 'riot';
-import avner from './avner';
+import from './avner';
+import from './amit';
 
 console.log("RIOT MAIN TAG");
 riot.tag('main', `

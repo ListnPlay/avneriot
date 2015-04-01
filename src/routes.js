@@ -1,35 +1,35 @@
-import page from 'page';
-import avner from './components/avner';
-import amit from './components/amit';
-import riot from 'riot-node';
+// Application routes - shared by client and server
+import RiotControl from 'riotcontrol';
 
-let mountTag = (selector, tag, store) => {
-    return (ctx, next) => {
-        console.log("Mount tag ", tag, " on ", selector, "with store ", store);
-        riot.mount(selector, tag, {context: ctx, store: store});
-    };
-};
-
-
-export default class Routes {
+class Routes {
     constructor() {
         console.log("Routes class constructed!");
-        // this.routingTable();
     }
 
-    routingTable() {
-        console.log("routingTable!");
-
+    runRoutingTable(app) {
+        console.log("running routingTable!");
 
         //============Routing Table============//
         //                                     //
-        page('/', triggerEvent('person_swap'), mountTag('person', 'avner', personStore));
-        page('/amit', triggerEvent('person_swap'), mountTag('person', 'amit', personStore));
-        page('/avner', triggerEvent('person_swap'), mountTag('person', 'avner', personStore));
-    }
+        app.route('/').get((req, res) => {
+            console.log("Handling route!")
+            RiotControl.trigger("person_swap", null);
+        });
 
-    start() {
-        console.log("Routing...");
-        page();
+        app.route('/avner').get((req, res) => {
+            console.log("Triggering avner person_swap")
+            RiotControl.trigger("person_swap", "avner");
+        });
+
+        app.route('/amit').get((req, res) => {
+            console.log("Triggering amit person_swap")
+            RiotControl.trigger("person_swap", "amit");
+        });
     }
-}
+};
+
+// Singleton
+let instance = new Routes();
+export default instance;
+
+
