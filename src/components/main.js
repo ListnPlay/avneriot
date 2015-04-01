@@ -27,4 +27,16 @@ riot.tag('main', `
         console.log("Main mounted");
         //         this.routes.start();
     });
+
+    this.on('premount', () => {
+        // For isomorphic rendering
+        console.log("PREMOUNT MAIN");
+        if (document) {
+            var serverNode = document.querySelector("main");
+            console.log("Server tag", serverNode);
+            while (serverNode.hasChildNodes()) {
+                serverNode.removeChild(serverNode.lastChild);
+            }
+        }
+    });
 });

@@ -1,4 +1,4 @@
-process.env.SYSTEM_JS_PATH = "file://Users/avnerus/Projects/Equala/avneriot/build";
+process.env.SYSTEM_JS_PATH = "file://home/avnerus/Projects/EQuala/avneriot/build";
 
 console.log("BaseURL: ", process.env.SYSTEM_JS_PATH);
 
