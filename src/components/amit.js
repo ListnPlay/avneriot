@@ -17,7 +17,7 @@ riot.tag('amit', `
     console.log("Amit tag with store: ", store);
     store.on('person_swap', (person) => {
         console.log("Amit is being swapped! with " + person);
-        this.unmount();
+        this.update();
     });
 });
 

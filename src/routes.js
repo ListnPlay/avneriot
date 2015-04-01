@@ -1,5 +1,6 @@
 // Application routes - shared by client and server
 import RiotControl from 'riotcontrol';
+import riot from 'riot';
 
 class Routes {
     constructor() {

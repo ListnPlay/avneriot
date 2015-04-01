@@ -18,10 +18,11 @@ riot.tag('main', `
  </style>
  `,
  function(opts) {
-     //this.routes = new Routes();
-    
-    //     console.log(personStore);
-
+    let store = opts.personStore;
+    store.on('person_swap', (person) => {
+        console.log("Main person swap!! " + person);
+        this.update();
+    });
     this.on('mount', () => {
         console.log("Main mounted");
         //         this.routes.start();

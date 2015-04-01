@@ -64,6 +64,19 @@ gulp.task('serve', ['html', 'js'] , function(cb) {
   gulp.watch('app.js', server.start);
 });
 
+gulp.task('browser', ['browser-sync', 'html', 'js'] , function(cb) {
+
+  plugins.watch(
+      './src/**/*.js',
+      {
+        name: 'JS'
+      },
+      function() {
+        gulp.start('js');
+      }
+  );
+});
+
 // Delete build Directory
 gulp.task('delete-build', function() {
   rimraf('./build', function(err) {
